@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 const uniqueList = [...new Set(Menu.map((curElem) => {
 	return curElem.category;
 })), "All",];
-console.log(uniqueList);
+
 
 const Resturant = () => {
 	const [menuData, setmenuData] = useState(Menu);
