@@ -2,12 +2,11 @@ import React from "react";
 
 const MenuCard = ({ menuData }) => {
   return (
-    <>
-      <section className="main-card--cointainer">
-        {menuData.map((curElem) => {
-          const { id, name, category, image, description } = curElem;
-          return (
-            <div className="card-container" key={id}>
+    <section className="main-card--cointainer">
+      {menuData.map((curElem) => {
+        const { id, name, category, image, description } = curElem;
+        return (
+          <div className="card-container" key={id}>
               <div className="card">
                 <div className="card-body">
                   <span className="card-number card-circle subtle">{id}</span>
@@ -23,8 +22,7 @@ const MenuCard = ({ menuData }) => {
             </div>
           );
         })}
-      </section>
-    </>
+    </section>
   );
 };
 

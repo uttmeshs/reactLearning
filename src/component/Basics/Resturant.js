@@ -4,34 +4,21 @@ import Menu from "./menuAPI";
 import MenuCard from "./MenuCard";
 import Navbar from "./Navbar";
 
-const uniqueList = [
-  ...new Set(
-    Menu.map((curElem) => {
-      return curElem.category;
-    })
-  ),
-  "All",
-];
+const uniqueList = [...new Set(Menu.map((curElem) => curElem.category)), "All"];
 
 const Resturant = () => {
   const [menuData, setmenuData] = useState(Menu);
-  const [menuList, setmenuList] = useState(uniqueList);
 
   const filterItem = (category) => {
-    if (category === "All") {
-      setmenuData(Menu);
-      return;
-    }
-
-    const updatedList = Menu.filter((curElem) => {
-      return curElem.category === category;
-    });
-    setmenuData(updatedList);
+    const filteredData = category === "All" 
+      ? Menu 
+      : Menu.filter((curElem) => curElem.category === category);
+    setmenuData(filteredData);
   };
 
   return (
     <>
-      <Navbar filterItem={filterItem} menuList={menuList} />
+      <Navbar filterItem={filterItem} menuList={uniqueList} />
       <MenuCard menuData={menuData} />
     </>
   );
